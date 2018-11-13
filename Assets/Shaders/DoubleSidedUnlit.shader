@@ -1,4 +1,4 @@
-﻿Shader "Voodoo/DoubleSidedUnlit"
+﻿Shader "vd/DoubleSidedUnlit"
 {
     Properties
     {
