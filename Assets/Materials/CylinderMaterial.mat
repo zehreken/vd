@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: CylinderMaterial
-  m_Shader: {fileID: 4800000, guid: d0188c64b3ff75947a4e285da6cedcd4, type: 3}
+  m_Shader: {fileID: 4800000, guid: d1a50999b6c6ff94ab4ab9315602442a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
