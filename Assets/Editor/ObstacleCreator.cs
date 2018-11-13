@@ -11,7 +11,7 @@ namespace vd
 		{
 			var center = Vector3.zero;
 //			GameObject.CreatePrimitive(PrimitiveType.Cube);
-			var radius = 2f;
+			var radius = 2.3f;
 			var circumference = radius * radius * Mathf.PI;
 			var cubeCount = Mathf.FloorToInt(circumference);
 			var angle = 360f / cubeCount;
