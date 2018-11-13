@@ -13,10 +13,10 @@ namespace vd
 //			GameObject.CreatePrimitive(PrimitiveType.Cube);
 			var radius = 2f;
 			var circumference = radius * radius * Mathf.PI;
-			Dbg.Log(circumference);
 			var cubeCount = Mathf.FloorToInt(circumference);
 			var angle = 360f / cubeCount;
 			var container = new GameObject("Circle");
+			Dbg.Log(circumference + " " + cubeCount + " " + angle);
 
 			for (int i = 0; i < cubeCount; i++)
 			{
@@ -24,6 +24,7 @@ namespace vd
 				cube.transform.SetParent(container.transform);
 				var position = new Vector3(radius * Mathf.Cos(angle * i), radius * Mathf.Sin(angle * i), 0f);
 				cube.transform.localPosition = position;
+				cube.transform.LookAt(center);
 			}
 		}
 	}
