@@ -22,7 +22,7 @@ namespace vd
 			{
 				var cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 				cube.transform.SetParent(container.transform);
-				var position = new Vector3(radius * Mathf.Cos(angle * i), radius * Mathf.Sin(angle * i), 0f);
+				var position = new Vector3(radius * Mathf.Cos(angle * i * Mathf.Deg2Rad), radius * Mathf.Sin(angle * i * Mathf.Deg2Rad), 0f);
 				cube.transform.localPosition = position;
 				cube.transform.LookAt(center);
 			}
