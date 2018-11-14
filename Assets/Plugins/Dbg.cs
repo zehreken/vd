@@ -6,7 +6,7 @@
 
 using UnityEngine;
 
-namespace mi3m
+namespace vd
 {
 	public static class Dbg
 	{
