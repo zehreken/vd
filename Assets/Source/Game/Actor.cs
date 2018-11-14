@@ -17,7 +17,7 @@ namespace vd
 
 		public void Update(float deltaTime)
 		{
-			_transform.Translate(Vector3.forward * 5f * deltaTime);
+			_transform.Translate(Vector3.forward * 10f * deltaTime);
 		}
 	}
 
