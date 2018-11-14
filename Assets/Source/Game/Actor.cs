@@ -2,10 +2,10 @@
 
 namespace vd
 {
-	public class Actor
+	public class Actor : IActor
 	{
-		private GameObject _view;
-		private Transform _transform;
+		private readonly GameObject _view;
+		private readonly Transform _transform;
 		
 		public Actor()
 		{
@@ -17,7 +17,14 @@ namespace vd
 
 		public void Update(float deltaTime)
 		{
-			_transform.Translate(Vector3.forward * 10f * deltaTime);
+			_transform.Translate(Vector3.forward * 20f * deltaTime);
+			if (_transform.localPosition.z > 100f)
+				_transform.localPosition = new Vector3(0f, -2f, -100f);
+		}
+
+		public Transform GetTransform()
+		{
+			return _transform;
 		}
 	}
 
