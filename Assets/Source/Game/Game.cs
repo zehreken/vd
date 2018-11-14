@@ -19,6 +19,10 @@
 		public void Update(float deltaTime)
 		{
 			_actor.Update(deltaTime);
+		}
+
+		public void LateUpdate(float deltaTime)
+		{
 			_cameraController.Update(deltaTime);
 		}
 

@@ -8,18 +8,18 @@ namespace vd
 		public Game _game;
 		public AppState State = AppState.Game;
 
-		void Start()
+		private void Start()
 		{
 			Instance = this;
 			Application.targetFrameRate = 60;
 			Input.multiTouchEnabled = false;
-			
+
 			Services.Initialize();
-			
+
 			_game = new Game();
 		}
 
-		void Update()
+		private void Update()
 		{
 			if (_game != null)
 			{
@@ -27,14 +27,20 @@ namespace vd
 			}
 		}
 
+		private void LateUpdate()
+		{
+			if (_game != null)
+			{
+				_game.LateUpdate(Time.deltaTime);
+			}
+		}
+
 		public void Quit()
 		{
-			
 		}
 
 		public void Restart()
 		{
-			
 		}
 
 		public enum AppState
