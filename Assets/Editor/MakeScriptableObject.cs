@@ -18,18 +18,18 @@ namespace vd
 			Selection.activeObject = asset;
 		}
 
-//		[MenuItem("vd/Create/PrefabDictionary")]
-//		public static void CreatePrefabDictionary()
-//		{
-//			PrefabDictionary asset = ScriptableObject.CreateInstance<PrefabDictionary>();
-//
-//			AssetDatabase.CreateAsset(asset, "Assets/Resources/PrefabDictionary.asset");
-//			AssetDatabase.SaveAssets();
-//
-//			EditorUtility.FocusProjectWindow();
-//
-//			Selection.activeObject = asset;
-//		}
+		[MenuItem("vd/Create/PrefabDictionary")]
+		public static void CreatePrefabDictionary()
+		{
+			PrefabDictionary asset = ScriptableObject.CreateInstance<PrefabDictionary>();
+
+			AssetDatabase.CreateAsset(asset, "Assets/Resources/PrefabDictionary.asset");
+			AssetDatabase.SaveAssets();
+
+			EditorUtility.FocusProjectWindow();
+
+			Selection.activeObject = asset;
+		}
 
 		[MenuItem("vd/Create/AudioDictionary")]
 		public static void CreateAudioDictionary()
