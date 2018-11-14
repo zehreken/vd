@@ -222,7 +222,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b182efed8fc807428eb61f6e0f41512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menus: []
+  _menus:
+  - {fileID: 2000023296}
+  - {fileID: 887193135}
+  - {fileID: 386912824}
+  - {fileID: 808340372}
 --- !u!1 &16569783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1336,6 +1340,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 386912823}
+  - component: {fileID: 386912824}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -1361,6 +1366,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &386912824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 386912822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40878872bec614489a1ea5e50962cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _elements:
+    CloseButton: {fileID: 0}
+    BackButton: {fileID: 0}
+    RestartButton: {fileID: 0}
+    ScoreText: {fileID: 0}
 --- !u!1 &389699347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,6 +2155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 808340371}
+  - component: {fileID: 808340372}
   m_Layer: 5
   m_Name: EndGameMenu
   m_TagString: Untagged
@@ -2159,6 +2181,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &808340372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 808340370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddefa6db569365e44bcbca430cbac8ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _elements:
+    BackButton: {fileID: 0}
+    RestartButton: {fileID: 0}
+    ScoreText: {fileID: 0}
 --- !u!1 &849609769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,6 +2374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 887193134}
+  - component: {fileID: 887193135}
   m_Layer: 5
   m_Name: GameMenu
   m_TagString: Untagged
@@ -2362,6 +2400,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &887193135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 887193133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b4179bb3b5080449780081f201f9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _elements:
+    ScoreText: {fileID: 0}
+    HighScoreText: {fileID: 0}
+    PauseButton: {fileID: 0}
 --- !u!1 &913313632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,6 +3966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8d02af39f1a224ca17b108885d6ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  State: 0
 --- !u!1 &1444555827
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,6 +4905,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2000023295}
+  - component: {fileID: 2000023296}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -4876,6 +4931,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2000023296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2000023294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b2f59c1ae7a4744bd5c7b50d4d93ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _elements:
+    HighScoreText: {fileID: 0}
+    PlayButton: {fileID: 0}
+    ToggleSoundButton: {fileID: 0}
+    SoundImages: []
 --- !u!1 &2031355928
 GameObject:
   m_ObjectHideFlags: 0
