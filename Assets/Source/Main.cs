@@ -15,10 +15,16 @@ namespace vd
 			Input.multiTouchEnabled = false;
 			
 			Services.Initialize();
+			
+			_game = new Game();
 		}
 
 		void Update()
 		{
+			if (_game != null)
+			{
+				_game.Update(Time.deltaTime);
+			}
 		}
 
 		public void Quit()
