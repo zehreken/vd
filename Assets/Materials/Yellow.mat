@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: UnlitColor
+  m_Name: Yellow
   m_Shader: {fileID: 4800000, guid: 6ccf476856b472d4d80c741588dc7101, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
