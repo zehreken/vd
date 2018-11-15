@@ -17,9 +17,9 @@ namespace vd
 
 		public void Update(float deltaTime)
 		{
-			_transform.Translate(Vector3.forward * 20f * deltaTime);
-			if (_transform.localPosition.z > 100f)
-				_transform.localPosition = new Vector3(0f, -2f, -100f);
+//			_transform.Translate(Vector3.forward * 20f * deltaTime);
+//			if (_transform.localPosition.z > 100f)
+//				_transform.localPosition = new Vector3(0f, -2f, -100f);
 		}
 
 		public Transform GetTransform()

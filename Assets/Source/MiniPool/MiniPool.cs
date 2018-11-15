@@ -7,6 +7,7 @@ namespace vd
 {
 	public enum PrefabName
 	{
+		Tube,
 		Actor,
 		Obstacle,
 	}
