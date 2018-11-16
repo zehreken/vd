@@ -7,6 +7,7 @@ namespace vd
 		private readonly GameObject _view;
 		private readonly Transform _transform;
 		private Behaviour _behaviour;
+		private float _scaleTimer = 0f;
 
 		public Obstacle(float zPos)
 		{
@@ -25,7 +26,11 @@ namespace vd
 				_transform.localPosition = new Vector3(0f, 0f, 100f);
 //				_behaviour = new RotateOneShot(_transform, Random.Range(0, 2) > 0 ? Vector3.forward : Vector3.back);
 				_behaviour = new RotateBounce(_transform, Random.Range(0, 2) > 0 ? Vector3.forward : Vector3.back);
+				_scaleTimer = 0f;
 			}
+
+			_transform.localScale = Vector3.Lerp(Vector3.one * 2, Vector3.one, _scaleTimer);
+			_scaleTimer += Time.deltaTime;
 
 			_behaviour.Update(deltaTime);
 		}
