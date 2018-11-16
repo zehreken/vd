@@ -23,7 +23,8 @@ namespace vd
 			if (_transform.localPosition.z < -10f)
 			{
 				_transform.localPosition = new Vector3(0f, 0f, 100f);
-				_behaviour = new RotateOneShot(_transform, Random.Range(0, 2) > 0 ? Vector3.forward : Vector3.back);
+//				_behaviour = new RotateOneShot(_transform, Random.Range(0, 2) > 0 ? Vector3.forward : Vector3.back);
+				_behaviour = new RotateBounce(_transform, Random.Range(0, 2) > 0 ? Vector3.forward : Vector3.back);
 			}
 
 			_behaviour.Update(deltaTime);

@@ -2,11 +2,11 @@
 
 namespace vd
 {
-	public class RotateOneShot : Behaviour
+	public class RotateBounce : Behaviour
 	{
 		private float _timer = 2f;
-
-		public RotateOneShot(Transform transform, Vector3 direction)
+		
+		public RotateBounce(Transform transform, Vector3 direction)
 		{
 			Transform = transform;
 			Direction = direction;
@@ -18,6 +18,11 @@ namespace vd
 			{
 				_timer -= deltaTime;
 				Transform.Rotate(Direction * 30f * deltaTime);
+			}
+			else
+			{
+				_timer = 2f;
+				Direction *= -1f;
 			}
 		}
 	}
