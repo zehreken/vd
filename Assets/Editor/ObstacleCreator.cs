@@ -1,21 +1,20 @@
-﻿using vd;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 namespace vd
 {
 	public static class ObstacleCreator
 	{
-		[MenuItem("vd/Create Circle")]
+		[MenuItem("vd/Create Obstacle")]
 		public static void CreateCircle()
 		{
 			var center = Vector3.zero;
 //			GameObject.CreatePrimitive(PrimitiveType.Cube);
-			var radius = 2.3f;
+			var radius = 2.5f;
 			var circumference = radius * radius * Mathf.PI;
 			var cubeCount = Mathf.FloorToInt(circumference);
 			var angle = 360f / cubeCount;
-			var container = new GameObject("Circle");
+			var container = new GameObject("Obstacle");
 			Dbg.Log(circumference + " " + cubeCount + " " + angle);
 
 			for (int i = 0; i < cubeCount; i++)

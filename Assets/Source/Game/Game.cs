@@ -5,15 +5,19 @@
 		private readonly InputController _inputController;
 		private readonly Actor _actor;
 		private readonly IActor _cameraController;
-		private readonly IActor _obstacle;
+		private readonly IActor[] _obstacles;
 		private readonly IActor _tube;
 
 		public Game()
 		{
 			_actor = new Actor();
 //			_cameraController = new CameraController(_actor.GetTransform());
-			
-			_obstacle = new Obstacle();
+
+			_obstacles = new IActor[5];
+			for (int i = 0; i < _obstacles.Length; i++)
+			{
+				_obstacles[i] = new Obstacle(i * 20f);
+			}
 			_tube = new Tube();
 		}
 
@@ -21,10 +25,18 @@
 		{
 		}
 
+		public void RestartGame()
+		{
+			
+		}
+
 		public void Update(float deltaTime)
 		{
 			_actor.Update(deltaTime);
-			_obstacle.Update(deltaTime);
+			foreach (var t in _obstacles)
+			{
+				t.Update(deltaTime);
+			}
 			_tube.Update(deltaTime);
 		}
 
