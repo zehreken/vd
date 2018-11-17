@@ -27,12 +27,12 @@ namespace vd
 			}
 		}
 
-		[MenuItem("vd/Create Obstacle18")]
-		public static void CreateObstacle18()
+		[MenuItem("vd/Create Obstacle30")]
+		public static void CreateObstacle30()
 		{
 			var center = Vector3.zero;
 			var radius = 2.5f;
-			var angle = 20f;
+			var angle = 12f;
 			var cubeCount = 360f / angle;
 			var container = new GameObject("Obstacle");
 
