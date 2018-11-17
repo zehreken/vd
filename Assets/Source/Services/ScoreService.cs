@@ -16,25 +16,14 @@ namespace vd
 			UpdateUi();
 		}
 
-//		public void AddScore(int value)
-//		{
-//			_score += Mathf.FloorToInt(Mathf.Pow(value, 1.5f));
-//			if (_score > _highScore)
-//			{
-//				_highScore = _score;
-//			}
-//
-//			UpdateUi();
-//		}
-
-		public void SetScore(int value)
+		public void AddScore(int value)
 		{
-			_score = value;
+			_score += value;
 			if (_score > _highScore)
 			{
 				_highScore = _score;
 			}
-			
+
 			UpdateUi();
 		}
 

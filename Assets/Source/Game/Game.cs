@@ -9,7 +9,6 @@ namespace vd
 		private readonly Actor _actor;
 		private readonly IActor _cameraController;
 		private readonly ObstacleManager _obstacleManager;
-		private float _distance = 0f;
 
 		public Game()
 		{
@@ -28,7 +27,6 @@ namespace vd
 			_tube.Reset();
 			_actor.Reset();
 			_obstacleManager.Reset();
-			_distance = 0f;
 			Services.GetScoreService().ResetScore();
 		}
 
@@ -39,9 +37,7 @@ namespace vd
 			
 			_tube.Update(deltaTime);
 			_actor.Update(deltaTime);
-			_obstacleManager.Update(deltaTime);
-			_distance += deltaTime * 4f;
-			Services.GetScoreService().SetScore(Mathf.FloorToInt(_distance));
+			_obstacleManager.Update(deltaTime);	
 		}
 
 		public void LateUpdate(float deltaTime)

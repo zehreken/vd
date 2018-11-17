@@ -39,6 +39,7 @@ namespace vd
 				IsActive = false;
 				_view.SendToPool();
 				_transform = null;
+				Services.GetScoreService().AddScore(1);
 			}
 		}
 

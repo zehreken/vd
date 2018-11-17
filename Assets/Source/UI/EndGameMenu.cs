@@ -35,8 +35,8 @@ namespace vd
 		{
 			Main.Instance.State = Main.AppState.Game;
 			MenuManager.Close(typeof(EndGameMenu));
-			MenuManager.Show(typeof(MainMenu));
-			Main.Instance.Quit();
+			MenuManager.Show(typeof(GameMenu));
+//			Main.Instance.Quit();
 		}
 
 		private void OnClickRestart()

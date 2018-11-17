@@ -7,12 +7,14 @@ namespace vd
 	{
 		private readonly GameObject _view;
 		private readonly Transform _transform;
+		private readonly Transform _bodyTransform;
 		private float _prevPosition;
 		
 		public Actor()
 		{
 			_view = MiniPool.Create(PrefabName.Actor, new Vector3(0f, -2.25f, 0f));
 			_transform = _view.transform;
+			_bodyTransform = _transform.GetChild(0);
 
 			_view.AddComponent<CollisionHelper>();
 		}
@@ -33,11 +35,13 @@ namespace vd
 				_transform.RotateAround(Vector3.zero, Vector3.forward, fingerDelta * 30f * deltaTime);
 				_prevPosition = Input.mousePosition.x;
 			}
+			_bodyTransform.Rotate(Vector3.right, 1000f * deltaTime, Space.Self);
 		}
 
 		public void Reset()
 		{
 			_transform.localPosition = new Vector3(0f, -2.25f, 0f);
+			_bodyTransform.rotation = Quaternion.identity;
 		}
 
 		[Obsolete]
