@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace vd
 {
@@ -14,16 +13,9 @@ namespace vd
 		{
 			base.Initialize(menuManager);
 
-			_elements.PauseButton.onClick.AddListener(OnClickPause);
 			MiniBus.SubscribeToEvent(GameEvent.Score, OnUpdateScore);
 			MiniBus.SubscribeToEvent(GameEvent.HighScore, OnUpdateHighScore);
 			_elements.HighScoreText.text = Services.GetScoreService().GetHighScore().ToString();
-		}
-
-		private void OnClickPause()
-		{
-			MenuManager.Close(typeof(GameMenu));
-			MenuManager.Show(typeof(PauseMenu));
 		}
 
 		private void OnUpdateScore(Dictionary<string, object> data)
@@ -41,7 +33,6 @@ namespace vd
 		{
 			public TextMeshProUGUI ScoreText;
 			public TextMeshProUGUI HighScoreText;
-			public Button PauseButton;
 		}
 	}
 }
