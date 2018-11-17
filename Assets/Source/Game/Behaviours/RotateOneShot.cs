@@ -6,7 +6,7 @@ namespace vd
 	{
 		private float _timer = 2f;
 
-		public RotateOneShot(Transform transform, Vector3 direction)
+		public override void Init(Transform transform, Vector3 direction)
 		{
 			Transform = transform;
 			Direction = direction;

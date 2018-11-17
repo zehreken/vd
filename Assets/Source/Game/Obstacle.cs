@@ -4,35 +4,42 @@ namespace vd
 {
 	public class Obstacle : IActor
 	{
-		private readonly GameObject _view;
-		private readonly Transform _transform;
+		private GameObject _view;
+		private Transform _transform;
 		private Behaviour _behaviour;
 		private float _scaleTimer = 0f;
+		public bool IsActive = false;
 
-		public Obstacle(float zPos)
+		public void Init(ObstacleTemplate template)
 		{
-			_view = MiniPool.Create(PrefabName.Obstacle, new Vector3(0f, 0f, zPos));
+			_view = MiniPool.Create(template.PrefabName, new Vector3(0f, 0f, 100f));
 			_transform = _view.transform;
-			_transform.Rotate(0f, 0f, Random.Range(0, 360f));
-
-			_behaviour = new Rotate(_transform, Random.Range(0, 2) > 0 ? Vector3.forward : Vector3.back);
+			_transform.localEulerAngles = new Vector3(0f, 0f, template.StartAngle);
+			_behaviour = ObstaclePatterns.GetBehaviour(template.BehaviourType);
+			_behaviour.Init(_transform, template.Direction);
+			IsActive = true;
+			_scaleTimer = 0f;
 		}
 
 		public void Update(float deltaTime)
 		{
-			_transform.Translate(Vector3.back * 20f * deltaTime);
-			if (_transform.localPosition.z < -10f)
-			{
-				_transform.localPosition = new Vector3(0f, 0f, 100f);
-//				_behaviour = new RotateOneShot(_transform, Random.Range(0, 2) > 0 ? Vector3.forward : Vector3.back);
-				_behaviour = new RotateBounce(_transform, Random.Range(0, 2) > 0 ? Vector3.forward : Vector3.back);
-				_scaleTimer = 0f;
-			}
+			if (!IsActive)
+				return;
 
+			// Scale animation
 			_transform.localScale = Vector3.Lerp(Vector3.one * 2, Vector3.one, _scaleTimer);
 			_scaleTimer += Time.deltaTime;
-
+			// Movement
+			_transform.Translate(Vector3.back * 20f * deltaTime);
+			// Rotation
 			_behaviour.Update(deltaTime);
+
+			if (_transform.localPosition.z < -10f)
+			{
+				IsActive = false;
+				_view.SendToPool();
+				_transform = null;
+			}
 		}
 	}
 }

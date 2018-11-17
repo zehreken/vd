@@ -5,8 +5,8 @@ namespace vd
 	public class RotateBounce : Behaviour
 	{
 		private float _timer = 2f;
-		
-		public RotateBounce(Transform transform, Vector3 direction)
+
+		public override void Init(Transform transform, Vector3 direction)
 		{
 			Transform = transform;
 			Direction = direction;
