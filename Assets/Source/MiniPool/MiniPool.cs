@@ -13,6 +13,7 @@ namespace vd
 		Obstacle2,
 		Obstacle3,
 		Obstacle4,
+		Obstacle5,
 	}
 
 	public static class MiniPool

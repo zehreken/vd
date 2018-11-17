@@ -11,7 +11,7 @@ namespace vd
 		
 		public Actor()
 		{
-			_view = MiniPool.Create(PrefabName.Actor, new Vector3(0f, -2f, 0f));
+			_view = MiniPool.Create(PrefabName.Actor, new Vector3(0f, -2.25f, 0f));
 			_transform = _view.transform;
 
 			_view.AddComponent<CollisionHelper>();
@@ -37,7 +37,7 @@ namespace vd
 
 		public void Reset()
 		{
-			_transform.localPosition = new Vector3(0f, -2f, 0f);
+			_transform.localPosition = new Vector3(0f, -2.25f, 0f);
 		}
 
 		[Obsolete]
