@@ -24,10 +24,20 @@ namespace vd
 			new ObstacleTemplate(PrefabName.Obstacle2, 60f, BehaviourType.RotateOneShot, Vector3.forward),
 		};
 
+		public static ObstacleTemplate[] Pattern3 =
+		{
+			new ObstacleTemplate(PrefabName.Obstacle3, 0f, BehaviourType.RotateBounce, Vector3.forward),
+			new ObstacleTemplate(PrefabName.Obstacle3, 100f, BehaviourType.RotateBounce, Vector3.back),
+			new ObstacleTemplate(PrefabName.Obstacle3, 0f, BehaviourType.RotateBounce, Vector3.forward),
+			new ObstacleTemplate(PrefabName.Obstacle3, 100f, BehaviourType.RotateBounce, Vector3.back),
+			new ObstacleTemplate(PrefabName.Obstacle3, 0f, BehaviourType.RotateBounce, Vector3.forward),
+		};
+
 		public static readonly ObstacleTemplate[][] Patterns =
 		{
 			Pattern1,
 			Pattern2,
+			Pattern3,
 		};
 
 		public static ObstacleTemplate[] GetRandomPattern()
