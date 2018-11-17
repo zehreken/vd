@@ -30,7 +30,7 @@ namespace vd
 			_transform.localScale = Vector3.Lerp(Vector3.one * 2, Vector3.one, _scaleTimer);
 			_scaleTimer += Time.deltaTime;
 			// Movement
-			_transform.Translate(Vector3.back * 20f * deltaTime);
+			_transform.Translate(Vector3.back * 40f * deltaTime);
 			// Rotation
 			_behaviour.Update(deltaTime);
 
