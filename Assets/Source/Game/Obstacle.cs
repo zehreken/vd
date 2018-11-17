@@ -34,7 +34,7 @@ namespace vd
 			// Rotation
 			_behaviour.Update(deltaTime);
 
-			if (_transform.localPosition.z < -10f)
+			if (_transform.localPosition.z < -8f)
 			{
 				IsActive = false;
 				_view.SendToPool();

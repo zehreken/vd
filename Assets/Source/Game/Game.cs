@@ -16,6 +16,7 @@ namespace vd
 			_actor = new Actor();
 //			_cameraController = new CameraController(_actor.GetTransform());
 			_obstacleManager = new ObstacleManager();
+			Services.GetScoreService().ResetScore();
 		}
 
 		public void StartGame()
@@ -34,10 +35,10 @@ namespace vd
 		{
 			if (Main.Instance.State == Main.AppState.Pause)
 				return;
-			
+
 			_tube.Update(deltaTime);
 			_actor.Update(deltaTime);
-			_obstacleManager.Update(deltaTime);	
+			_obstacleManager.Update(deltaTime);
 		}
 
 		public void LateUpdate(float deltaTime)
