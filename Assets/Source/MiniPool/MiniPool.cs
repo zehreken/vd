@@ -10,6 +10,7 @@ namespace vd
 		Tube,
 		Actor,
 		Obstacle,
+		Obstacle2,
 	}
 
 	public static class MiniPool
