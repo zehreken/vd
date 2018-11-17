@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,7 +6,7 @@ namespace vd
 {
 	public static class ObstaclePatterns
 	{
-		public static readonly ObstacleTemplate[] Pattern1 =
+		private static readonly ObstacleTemplate[] Pattern1 =
 		{
 			new ObstacleTemplate(PrefabName.Obstacle, 30f, BehaviourType.Rotate, Vector3.forward),
 			new ObstacleTemplate(PrefabName.Obstacle, 60f, BehaviourType.Rotate, Vector3.back),
@@ -15,7 +14,7 @@ namespace vd
 			new ObstacleTemplate(PrefabName.Obstacle, 60f, BehaviourType.Rotate, Vector3.back),
 		};
 
-		public static readonly ObstacleTemplate[] Pattern2 =
+		private static readonly ObstacleTemplate[] Pattern2 =
 		{
 			new ObstacleTemplate(PrefabName.Obstacle2, 20f, BehaviourType.RotateOneShot, Vector3.forward),
 			new ObstacleTemplate(PrefabName.Obstacle2, 30f, BehaviourType.RotateOneShot, Vector3.forward),
@@ -24,7 +23,7 @@ namespace vd
 			new ObstacleTemplate(PrefabName.Obstacle2, 60f, BehaviourType.RotateOneShot, Vector3.forward),
 		};
 
-		public static ObstacleTemplate[] Pattern3 =
+		private static ObstacleTemplate[] Pattern3 =
 		{
 			new ObstacleTemplate(PrefabName.Obstacle3, 0f, BehaviourType.RotateBounce, Vector3.forward),
 			new ObstacleTemplate(PrefabName.Obstacle3, 100f, BehaviourType.RotateBounce, Vector3.back),
@@ -33,11 +32,20 @@ namespace vd
 			new ObstacleTemplate(PrefabName.Obstacle3, 0f, BehaviourType.RotateBounce, Vector3.forward),
 		};
 
+		private static ObstacleTemplate[] Pattern4 =
+		{
+			new ObstacleTemplate(PrefabName.Obstacle4, 0f, BehaviourType.RotateOneShot, Vector3.forward), 
+			new ObstacleTemplate(PrefabName.Obstacle4, 90f, BehaviourType.RotateOneShot, Vector3.back), 
+			new ObstacleTemplate(PrefabName.Obstacle4, 0f, BehaviourType.RotateOneShot, Vector3.forward), 
+			new ObstacleTemplate(PrefabName.Obstacle4, 90f, BehaviourType.RotateOneShot, Vector3.back), 
+		};
+
 		public static readonly ObstacleTemplate[][] Patterns =
 		{
 			Pattern1,
 			Pattern2,
 			Pattern3,
+			Pattern4,
 		};
 
 		public static ObstacleTemplate[] GetRandomPattern()
