@@ -21,28 +21,28 @@ namespace vd
 
 		private void OnEnable()
 		{
-//			Main.Instance.State = Main.AppState.Pause;
+			Main.Instance.State = Main.AppState.Pause;
 		}
 
 		private void OnClickClose()
 		{
-//			Main.Instance.State = Main.AppState.Game;
+			Main.Instance.State = Main.AppState.Game;
 			MenuManager.Close(typeof(EndGameMenu));
 			MenuManager.Show(typeof(GameMenu));
 		}
 
 		private void OnClickBack()
 		{
-//			Main.Instance.State = Main.AppState.Game;
+			Main.Instance.State = Main.AppState.Game;
 			MenuManager.Close(typeof(EndGameMenu));
 			MenuManager.Show(typeof(MainMenu));
-//			Main.Instance.Quit();
+			Main.Instance.Quit();
 		}
 
 		private void OnClickRestart()
 		{
 			OnClickClose();
-//			Main.Instance.Restart();
+			Main.Instance.Restart();
 		}
 		
 		private void OnUpdateScore(Dictionary<string, object> data)

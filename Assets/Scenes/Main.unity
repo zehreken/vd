@@ -216,7 +216,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 8369510}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b182efed8fc807428eb61f6e0f41512, type: 3}
   m_Name: 
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8d02af39f1a224ca17b108885d6ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  State: 0
+  State: 1
 --- !u!1001 &1685601149
 Prefab:
   m_ObjectHideFlags: 0

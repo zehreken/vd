@@ -25,7 +25,7 @@ namespace vd
 
 		private void OnClickPlay()
 		{
-//			Main.Instance.StartGame();
+			Main.Instance.StartGame();
 
 			MenuManager.Close(typeof(MainMenu));
 			MenuManager.Show(typeof(GameMenu));

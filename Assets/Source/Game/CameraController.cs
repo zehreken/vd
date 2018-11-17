@@ -18,5 +18,9 @@ namespace vd
 			var diff = _actorTransform.localPosition.z - _transform.localPosition.z;
 			_transform.Translate(Vector3.forward * diff * deltaTime);
 		}
+
+		public void Reset()
+		{
+		}
 	}
 }

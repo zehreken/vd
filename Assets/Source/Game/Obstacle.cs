@@ -41,5 +41,12 @@ namespace vd
 				_transform = null;
 			}
 		}
+
+		public void Reset()
+		{
+			IsActive = false;
+			_view.SendToPool();
+			_transform = null;
+		}
 	}
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace vd
 {
@@ -29,11 +30,17 @@ namespace vd
 			else if (Input.GetMouseButton(0))
 			{
 				var fingerDelta = Input.mousePosition.x - _prevPosition;
-				_transform.RotateAround(Vector3.zero, Vector3.forward, fingerDelta * 20 * deltaTime);
+				_transform.RotateAround(Vector3.zero, Vector3.forward, fingerDelta * 30f * deltaTime);
 				_prevPosition = Input.mousePosition.x;
 			}
 		}
 
+		public void Reset()
+		{
+			_transform.localPosition = new Vector3(0f, -2f, 0f);
+		}
+
+		[Obsolete]
 		public Transform GetTransform()
 		{
 			return _transform;
@@ -45,6 +52,7 @@ namespace vd
 		private void OnTriggerEnter(Collider other)
 		{
 			Dbg.Log("collision");
+			MenuManager.Instance.Show(typeof(EndGameMenu));
 		}
 	}
 }

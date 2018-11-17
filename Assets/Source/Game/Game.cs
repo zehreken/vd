@@ -20,13 +20,18 @@
 		{
 		}
 
-		public void RestartGame()
+		public void Reset()
 		{
-			
+			_tube.Reset();
+			_actor.Reset();
+			_obstacleManager.Reset();
 		}
 
 		public void Update(float deltaTime)
 		{
+			if (Main.Instance.State == Main.AppState.Pause)
+				return;
+			
 			_tube.Update(deltaTime);
 			_actor.Update(deltaTime);
 			_obstacleManager.Update(deltaTime);

@@ -28,6 +28,15 @@ namespace vd
 			}
 		}
 
+		public void Reset()
+		{
+			_remainingPatterns = 0;
+			foreach (var obstacle in _obstacles)
+			{
+				obstacle.Reset();
+			}
+		}
+
 		private void SpawnObstacle()
 		{
 			if (_remainingPatterns == 0)

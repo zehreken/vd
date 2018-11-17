@@ -6,7 +6,7 @@ namespace vd
 	{
 		public static Main Instance { get; private set; }
 		public Game _game;
-		public AppState State = AppState.Game;
+		public AppState State = AppState.Pause;
 
 		private void Start()
 		{
@@ -15,8 +15,14 @@ namespace vd
 			Input.multiTouchEnabled = false;
 
 			Services.Initialize();
+			MenuManager.Instance.Initialize();
 
 			_game = new Game();
+		}
+
+		public void StartGame()
+		{
+			State = AppState.Game;
 		}
 
 		private void Update()
@@ -41,6 +47,7 @@ namespace vd
 
 		public void Restart()
 		{
+			_game.Reset();
 		}
 
 		public enum AppState

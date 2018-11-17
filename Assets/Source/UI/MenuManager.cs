@@ -13,6 +13,11 @@ namespace vd
 
         void Start()
         {
+            Instance = this;
+        }
+
+        public void Initialize()
+        {
             _typeToMenuMap = new Dictionary<Type, Menu>();
             foreach (var menu in _menus)
             {
@@ -22,8 +27,6 @@ namespace vd
             }
             
             Show(typeof(MainMenu));
-
-            Instance = this;
         }
 
         public void Show<T>(T menuType) where T : Type

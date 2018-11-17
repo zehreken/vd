@@ -19,5 +19,10 @@ namespace vd
 			_offsetY += 5f * deltaTime;
 			_material.SetTextureOffset("_MainTex", new Vector2(0f, _offsetY));
 		}
+
+		public void Reset()
+		{
+			_material.SetTextureOffset("_MainTex", new Vector2(0f, 0f));
+		}
 	}
 }
