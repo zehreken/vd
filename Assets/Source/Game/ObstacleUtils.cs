@@ -1,11 +1,18 @@
 ﻿using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 namespace vd
 {
-	public static class ObstaclePatterns
+	public static class ObstacleUtils
 	{
+		private static GameData _gameData;
+		
+		static ObstacleUtils()
+		{
+			_gameData = Resources.Load<GameData>("GameData");
+		}
 		private static readonly ObstacleTemplate[] Pattern1 =
 		{
 			new ObstacleTemplate(PrefabName.Obstacle, 30f, BehaviourType.Rotate, Vector3.forward),
@@ -67,8 +74,8 @@ namespace vd
 		{
 			var patternLength = Random.Range(2, 6);
 			var pattern = new ObstacleTemplate[patternLength];
-			var rndObstacle = Random.Range(3, 8);
-			var rndBehaviour = Random.Range(0, 4);
+			var rndObstacle = Random.Range(3, 9); // There are six types of obstacles, starting from 3 
+			var rndBehaviour = Random.Range(0, 4); // There four types of behaviour
 			var rndAngle = Random.Range(0, 4);
 			var rndDirection = Random.Range(0, 2);
 			var direction = rndDirection > 0 ? Vector3.forward : Vector3.back;
@@ -83,7 +90,7 @@ namespace vd
 
 		public static Color GetRandomColor()
 		{
-			var colors = Resources.Load<GameData>("GameData").Colors;
+			var colors = _gameData.Colors;
 			return colors[Random.Range(0, colors.Length)];
 		}
 
@@ -109,6 +116,16 @@ namespace vd
 			}
 
 			return behaviour;
+		}
+
+		public static void CreateGemParticle(Vector3 position)
+		{
+			Object.Instantiate(_gameData.GemParticle, position, Quaternion.identity);
+		}
+
+		public static void CreateActorParticle(Vector3 position)
+		{
+			Object.Instantiate(_gameData.ActorParticle, position, Quaternion.identity);
 		}
 	}
 

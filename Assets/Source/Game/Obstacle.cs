@@ -15,7 +15,7 @@ namespace vd
 			_view = MiniPool.Create(template.PrefabName, new Vector3(0f, 0f, 100f));
 			_transform = _view.transform;
 			_transform.localEulerAngles = new Vector3(0f, 0f, template.StartAngle);
-			_behaviour = ObstaclePatterns.GetBehaviour(template.BehaviourType);
+			_behaviour = ObstacleUtils.GetBehaviour(template.BehaviourType);
 			
 			if (_behaviour != null)
 				_behaviour.Init(_transform, template.Direction);

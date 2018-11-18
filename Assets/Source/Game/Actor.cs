@@ -36,7 +36,7 @@ namespace vd
 				_prevPosition = Input.mousePosition.x;
 			}
 
-			_bodyTransform.Rotate(Vector3.right, 1000f * deltaTime, Space.Self);
+			_bodyTransform.Rotate(Vector3.right, GameConsts.Game.ActorSpinSpeed * deltaTime, Space.Self);
 		}
 
 		private void OnCollision(Collider collider)
@@ -44,8 +44,7 @@ namespace vd
 			if (collider.CompareTag("Obstacle"))
 			{
 				_particleSystem.Stop();
-				Object.Instantiate(Resources.Load<GameObject>("ActorParticle")).transform.localPosition =
-					_transform.position;
+				ObstacleUtils.CreateActorParticle(_transform.position);
 				Services.GetAudioService().Play(Clip.Hit);
 				_view.SetActive(false);
 				Main.Instance.StopGame();

@@ -1,4 +1,6 @@
-﻿namespace vd
+﻿using UnityEngine;
+
+namespace vd
 {
 	public static class GameConsts
 	{
@@ -9,6 +11,7 @@
 			public const float SlideSpeed = 40f;
 			public const float ActorRotateSpeed = 30f;
 			public const float NearPlaneLimit = -7f;
+			public const float ActorSpinSpeed = 360f * SlideSpeed / (2 * Mathf.PI * 0.25f); // SpinSpeed to Cover 40 units per second
 		}
 
 		public static class Persistence

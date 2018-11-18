@@ -36,9 +36,9 @@ namespace vd
 		{
 			if (_remainingPatterns == 0)
 			{
-				_currentPattern = ObstaclePatterns.CreateRandomPattern();
+				_currentPattern = ObstacleUtils.CreateRandomPattern();
 				_remainingPatterns = _currentPattern.Length;
-				_color = ObstaclePatterns.GetRandomColor();
+				_color = ObstacleUtils.GetRandomColor();
 			}
 
 			GetObstacle().Init(_currentPattern[_currentPattern.Length - _remainingPatterns], _color);
