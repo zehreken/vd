@@ -60,6 +60,10 @@ namespace vd
 		public void Reset()
 		{
 			_spawnTimer = 0.4f;
+			foreach (var gem in _gems)
+			{
+				gem.Reset();
+			}
 		}
 	}
 }

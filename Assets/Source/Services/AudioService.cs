@@ -13,15 +13,13 @@ namespace vd
 	{
 		private AudioDictionary _audioDictionary;
 		private readonly AudioSource _audioSource;
-		private readonly AudioSource _audioSourcePitch;
 		public bool IsMuted { private set; get; }
 
 		public AudioService()
 		{
 			var audioObject = new GameObject("AudioService");
 			_audioSource = audioObject.AddComponent<AudioSource>();
-			_audioSourcePitch = audioObject.AddComponent<AudioSource>();
-			_audioSource.volume = _audioSourcePitch.volume = 0.2f;
+			_audioSource.volume = 0.2f;
 			IsMuted = PlayerPrefs.GetInt(GameConsts.Persistence.MuteKey, 0) == 1;
 		}
 
@@ -36,15 +34,6 @@ namespace vd
 				return;
 
 			_audioSource.PlayOneShot(_audioDictionary.GetAudioClips()[name]);
-		}
-
-		public void Play(Clip name, float pitch)
-		{
-			if (IsMuted)
-				return;
-
-			_audioSourcePitch.pitch = pitch;
-			_audioSourcePitch.PlayOneShot(_audioDictionary.GetAudioClips()[name]);
 		}
 
 		public bool ToggleSound()

@@ -67,6 +67,7 @@ namespace vd
 		{
 			PlayerPrefs.SetInt(GameConsts.Persistence.ScoreKey, _score);
 			PlayerPrefs.SetInt(GameConsts.Persistence.HighScoreKey, _highScore);
+			PlayerPrefs.SetInt(GameConsts.Persistence.GemKey, _gemCount);
 		}
 	}
 }

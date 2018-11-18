@@ -5,7 +5,7 @@ namespace vd
 	public class Main : MonoBehaviour
 	{
 		public static Main Instance { get; private set; }
-		public Game _game;
+		private Game _game;
 		public AppState State = AppState.Pause;
 
 		private void Start()
@@ -22,34 +22,21 @@ namespace vd
 
 		public void StartGame()
 		{
-			State = AppState.Game;
+			State = AppState.Play;
 			_game.StartGame();
 		}
 
 		private void Update()
 		{
-			if (_game != null)
+			if (State == AppState.Play && _game != null)
 			{
 				_game.Update(Time.deltaTime);
 			}
 		}
 
-		private void LateUpdate()
-		{
-			if (_game != null)
-			{
-				_game.LateUpdate(Time.deltaTime);
-			}
-		}
-
-		public void Restart()
-		{
-			_game.Reset();
-		}
-
 		public enum AppState
 		{
-			Game,
+			Play,
 			Pause
 		}
 
@@ -57,13 +44,15 @@ namespace vd
 		{
 			if (isPaused)
 			{
-				// save game
+				// Save score and gems
+				Services.GetScoreService().Save();
 			}
 		}
 
 		private void OnApplicationQuit()
 		{
-			// save game
+			// Save score and gems
+			Services.GetScoreService().Save();
 		}
 	}
 }

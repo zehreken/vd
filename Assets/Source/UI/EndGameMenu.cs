@@ -19,30 +19,22 @@ namespace vd
 			MiniBus.SubscribeToEvent(GameEvent.Score, OnUpdateScore);
 		}
 
-		private void OnEnable()
-		{
-			Main.Instance.State = Main.AppState.Pause;
-		}
-
 		private void OnClickClose()
 		{
-			Main.Instance.State = Main.AppState.Game;
 			MenuManager.Close(typeof(EndGameMenu));
 			MenuManager.Show(typeof(GameMenu));
 		}
 
 		private void OnClickBack()
 		{
-			Main.Instance.State = Main.AppState.Pause;
 			MenuManager.Close(typeof(EndGameMenu));
 			MenuManager.Show(typeof(MainMenu));
-//			Main.Instance.Quit();
 		}
 
 		private void OnClickRestart()
 		{
 			OnClickClose();
-			Main.Instance.Restart();
+			Main.Instance.StartGame();
 		}
 		
 		private void OnUpdateScore(Dictionary<string, object> data)

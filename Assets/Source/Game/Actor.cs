@@ -53,6 +53,7 @@ namespace vd
 					_transform.position;
 				Services.GetAudioService().Play(Clip.Hit);
 				_view.SetActive(false);
+				Main.Instance.State = Main.AppState.Pause;
 			}
 			else if (collider.CompareTag("Gem"))
 			{
