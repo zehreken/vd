@@ -32,21 +32,10 @@ namespace vd
 			}
 		}
 
-		public void Reset()
-		{
-			_spawnTimer = 0f;
-			_remainingPatterns = 0;
-			foreach (var obstacle in _obstacles)
-			{
-				obstacle.Reset();
-			}
-		}
-
 		private void SpawnObstacle()
 		{
 			if (_remainingPatterns == 0)
 			{
-//				_currentPattern = ObstaclePatterns.GetRandomPattern();
 				_currentPattern = ObstaclePatterns.CreateRandomPattern();
 				_remainingPatterns = _currentPattern.Length;
 				_color = ObstaclePatterns.GetRandomColor();
@@ -67,14 +56,23 @@ namespace vd
 				}
 			}
 
-			if (obstacle == null)
+			if (obstacle == null) // No available obstacle, create a new one
 			{
 				obstacle = new Obstacle();
 				_obstacles.Add(obstacle);
-				Dbg.Log("obstacle count: " + _obstacles.Count);
 			}
 
 			return obstacle;
+		}
+
+		public void Reset()
+		{
+			_spawnTimer = 0f;
+			_remainingPatterns = 0;
+			foreach (var obstacle in _obstacles)
+			{
+				obstacle.Reset();
+			}
 		}
 	}
 }

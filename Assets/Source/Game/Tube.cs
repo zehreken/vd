@@ -15,7 +15,8 @@ namespace vd
 
 		public void Update(float deltaTime)
 		{
-			_offsetY += 5f * deltaTime;
+			const float speed = GameConsts.Game.SlideSpeed / 8f;
+			_offsetY += speed * deltaTime;
 			_material.SetTextureOffset("_MainTex", new Vector2(0f, _offsetY));
 		}
 

@@ -16,7 +16,10 @@ namespace vd
 			_transform = _view.transform;
 			_transform.localEulerAngles = new Vector3(0f, 0f, template.StartAngle);
 			_behaviour = ObstaclePatterns.GetBehaviour(template.BehaviourType);
-			_behaviour.Init(_transform, template.Direction);
+			
+			if (_behaviour != null)
+				_behaviour.Init(_transform, template.Direction);
+			
 			IsActive = true;
 			_scaleTimer = 0f;
 			foreach (var renderer in _view.GetComponentsInChildren<Renderer>())
@@ -37,13 +40,12 @@ namespace vd
 			var speed = GameConsts.Game.SlideSpeed;
 			_transform.Translate(Vector3.back * speed * deltaTime);
 			// Rotation
-			_behaviour.Update(deltaTime);
+			if (_behaviour != null)
+				_behaviour.Update(deltaTime);
 
 			if (_transform.localPosition.z < GameConsts.Game.NearPlaneLimit)
 			{
-				IsActive = false;
-				_view.SendToPool();
-				_transform = null;
+				Reset();
 				Services.GetScoreService().AddScore(1);
 			}
 		}
@@ -53,6 +55,7 @@ namespace vd
 			IsActive = false;
 			_view.SendToPool();
 			_transform = null;
+			_behaviour = null;
 		}
 	}
 }

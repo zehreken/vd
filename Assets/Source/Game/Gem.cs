@@ -13,6 +13,7 @@ namespace vd
 		{
 			_view = MiniPool.Create(PrefabName.Gem, new Vector3(0f, -2.25f, 100f));
 			_transform = _view.transform;
+			_transform.rotation = Quaternion.identity;
 			_transform.RotateAround(Vector3.zero, Vector3.forward, Random.Range(-90f, 90f));
 
 			if (_view.GetComponent<CollisionHelper>() != null)
@@ -36,9 +37,7 @@ namespace vd
 			
 			if (_transform.localPosition.z < GameConsts.Game.NearPlaneLimit)
 			{
-				IsActive = false;
-				_view.SendToPool();
-				_transform = null;
+				Reset();
 			}
 		}
 

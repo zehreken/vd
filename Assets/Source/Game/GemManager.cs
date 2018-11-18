@@ -47,11 +47,10 @@ namespace vd
 				}
 			}
 
-			if (gem == null)
+			if (gem == null) // No available gem, create a new one
 			{
 				gem = new Gem();
 				_gems.Add(gem);
-				Dbg.Log("gem count: " + _gems.Count);
 			}
 
 			return gem;

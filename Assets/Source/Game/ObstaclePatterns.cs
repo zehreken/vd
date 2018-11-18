@@ -68,7 +68,7 @@ namespace vd
 			var patternLength = Random.Range(2, 6);
 			var pattern = new ObstacleTemplate[patternLength];
 			var rndObstacle = Random.Range(3, 8);
-			var rndBehaviour = Random.Range(1, 4);
+			var rndBehaviour = Random.Range(0, 4);
 			var rndAngle = Random.Range(0, 4);
 			var rndDirection = Random.Range(0, 2);
 			var direction = rndDirection > 0 ? Vector3.forward : Vector3.back;
