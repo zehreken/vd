@@ -33,9 +33,9 @@ namespace vd
 
 		private void OnClickBack()
 		{
-			Main.Instance.State = Main.AppState.Game;
+			Main.Instance.State = Main.AppState.Pause;
 			MenuManager.Close(typeof(EndGameMenu));
-			MenuManager.Show(typeof(GameMenu));
+			MenuManager.Show(typeof(MainMenu));
 //			Main.Instance.Quit();
 		}
 

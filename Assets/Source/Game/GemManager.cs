@@ -59,6 +59,7 @@ namespace vd
 
 		public void Reset()
 		{
+			_spawnTimer = 0.4f;
 		}
 	}
 }

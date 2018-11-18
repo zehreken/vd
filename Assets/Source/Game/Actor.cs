@@ -46,10 +46,12 @@ namespace vd
 			_particleSystem.Stop();
 			if (collider.CompareTag("Obstacle"))
 			{
+				MenuManager.Instance.Close(typeof(GameMenu));
 				MenuManager.Instance.Show(typeof(EndGameMenu));
 			}
 			else if (collider.CompareTag("Gem"))
 			{
+				Services.GetScoreService().AddGem(1);
 			}
 		}
 
