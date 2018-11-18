@@ -21,7 +21,7 @@ namespace vd
 			_scaleTimer = 0f;
 			foreach (var renderer in _view.GetComponentsInChildren<Renderer>())
 			{
-				renderer.material.color = color;
+				renderer.material.SetColor("_MainColor", color);
 			}
 		}
 
