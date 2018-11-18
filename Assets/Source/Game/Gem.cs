@@ -27,11 +27,14 @@ namespace vd
 			if (!IsActive)
 				return;
 
+			// Scale
 			_transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, _scaleTimer);
 			_scaleTimer += 2 * Time.deltaTime;
-
-			_transform.Translate(Vector3.back * 40f * deltaTime);
-			if (_transform.localPosition.z < -8f)
+			// Movement
+			var speed = GameConsts.Game.SlideSpeed;
+			_transform.Translate(Vector3.back * speed * deltaTime);
+			
+			if (_transform.localPosition.z < GameConsts.Game.NearPlaneLimit)
 			{
 				IsActive = false;
 				_view.SendToPool();

@@ -10,7 +10,7 @@ namespace vd
 		private readonly Transform _transform;
 		private readonly Transform _bodyTransform;
 		private float _prevPosition;
-		private ParticleSystem _particleSystem;
+		private readonly ParticleSystem _particleSystem;
 
 		public Actor()
 		{
@@ -24,10 +24,6 @@ namespace vd
 
 		public void Update(float deltaTime)
 		{
-//			_transform.Translate(Vector3.forward * 20f * deltaTime);
-//			if (_transform.localPosition.z > 100f)
-//				_transform.localPosition = new Vector3(0f, -2f, -100f);
-
 			if (Input.GetMouseButtonDown(0))
 			{
 				_prevPosition = Input.mousePosition.x;
@@ -35,7 +31,8 @@ namespace vd
 			else if (Input.GetMouseButton(0))
 			{
 				var fingerDelta = Input.mousePosition.x - _prevPosition;
-				_transform.RotateAround(Vector3.zero, Vector3.forward, fingerDelta * 30f * deltaTime);
+				var speed = GameConsts.Game.ActorRotateSpeed;
+				_transform.RotateAround(Vector3.zero, Vector3.forward, fingerDelta * speed * deltaTime);
 				_prevPosition = Input.mousePosition.x;
 			}
 
@@ -47,8 +44,6 @@ namespace vd
 			if (collider.CompareTag("Obstacle"))
 			{
 				_particleSystem.Stop();
-				MenuManager.Instance.Close(typeof(GameMenu));
-				MenuManager.Instance.Show(typeof(EndGameMenu));
 				Object.Instantiate(Resources.Load<GameObject>("ActorParticle")).transform.localPosition =
 					_transform.position;
 				Services.GetAudioService().Play(Clip.Hit);
@@ -67,25 +62,6 @@ namespace vd
 			_bodyTransform.rotation = Quaternion.identity;
 			_view.SetActive(true);
 			_particleSystem.Play();
-		}
-	}
-
-	public class CollisionHelper : MonoBehaviour
-	{
-		private Action<Collider> _onCollision;
-
-		public void Init(Action<Collider> onCollision)
-		{
-			_onCollision = onCollision;
-		}
-
-		private void OnTriggerEnter(Collider other)
-		{
-			Dbg.Log("collision");
-			if (_onCollision != null)
-			{
-				_onCollision(other);
-			}
 		}
 	}
 }

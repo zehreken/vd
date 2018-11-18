@@ -11,8 +11,8 @@ namespace vd
 		private void Start()
 		{
 			Instance = this;
-			Application.targetFrameRate = 60;
-			Input.multiTouchEnabled = false;
+			Application.targetFrameRate = GameConsts.Game.TargetFrameRate;
+			Input.multiTouchEnabled = GameConsts.Game.MultiTouchEnabled;
 
 			Services.Initialize();
 			MenuManager.Instance.Initialize();
@@ -28,6 +28,8 @@ namespace vd
 
 		public void StopGame()
 		{
+			MenuManager.Instance.Close(typeof(GameMenu));
+			MenuManager.Instance.Show(typeof(EndGameMenu));
 			_state = AppState.Pause;
 		}
 

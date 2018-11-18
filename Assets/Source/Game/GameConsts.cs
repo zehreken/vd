@@ -4,7 +4,11 @@
 	{
 		public static class Game
 		{
-			
+			public const int TargetFrameRate = 60;
+			public const bool MultiTouchEnabled = false;
+			public const float SlideSpeed = 40f;
+			public const float ActorRotateSpeed = 30f;
+			public const float NearPlaneLimit = -7f;
 		}
 
 		public static class Persistence

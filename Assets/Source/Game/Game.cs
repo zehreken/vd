@@ -3,7 +3,7 @@
 	public sealed class Game
 	{
 		private readonly IActor _tube;
-		private readonly Actor _actor;
+		private readonly IActor _actor;
 		private readonly ObstacleManager _obstacleManager;
 		private readonly GemManager _gemManager;
 
