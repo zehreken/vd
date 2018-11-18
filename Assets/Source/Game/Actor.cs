@@ -10,7 +10,7 @@ namespace vd
 		private readonly Transform _bodyTransform;
 		private float _prevPosition;
 		private ParticleSystem _particleSystem;
-		
+
 		public Actor()
 		{
 			_view = MiniPool.Create(PrefabName.Actor, new Vector3(0f, -2.25f, 0f));
@@ -37,13 +37,20 @@ namespace vd
 				_transform.RotateAround(Vector3.zero, Vector3.forward, fingerDelta * 30f * deltaTime);
 				_prevPosition = Input.mousePosition.x;
 			}
+
 			_bodyTransform.Rotate(Vector3.right, 1000f * deltaTime, Space.Self);
 		}
 
-		private void OnCollision()
+		private void OnCollision(Collider collider)
 		{
 			_particleSystem.Stop();
-			MenuManager.Instance.Show(typeof(EndGameMenu));
+			if (collider.CompareTag("Obstacle"))
+			{
+				MenuManager.Instance.Show(typeof(EndGameMenu));
+			}
+			else if (collider.CompareTag("Gem"))
+			{
+			}
 		}
 
 		public void Reset()
@@ -62,19 +69,19 @@ namespace vd
 
 	public class CollisionHelper : MonoBehaviour
 	{
-		private Action _onCollision;
-		
-		public void Init(Action onCollision)
+		private Action<Collider> _onCollision;
+
+		public void Init(Action<Collider> onCollision)
 		{
 			_onCollision = onCollision;
 		}
-		
+
 		private void OnTriggerEnter(Collider other)
 		{
 			Dbg.Log("collision");
 			if (_onCollision != null)
 			{
-				_onCollision();
+				_onCollision(other);
 			}
 		}
 	}

@@ -7,13 +7,14 @@ namespace vd
 	{
 		private float _spawnTimer = 0f;
 		private const float SpawnPeriod = 0.8f;
-		private readonly List<Obstacle> _obstacles = new List<Obstacle>();
+		private readonly List<Obstacle> _obstacles;
 		private int _remainingPatterns = 0;
 		private ObstacleTemplate[] _currentPattern;
 		private Color _color;
 
 		public ObstacleManager()
 		{
+			_obstacles = new List<Obstacle>();
 		}
 
 		public void Update(float deltaTime)
@@ -33,6 +34,7 @@ namespace vd
 
 		public void Reset()
 		{
+			_spawnTimer = 0f;
 			_remainingPatterns = 0;
 			foreach (var obstacle in _obstacles)
 			{

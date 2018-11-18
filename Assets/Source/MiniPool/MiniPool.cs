@@ -9,6 +9,7 @@ namespace vd
 	{
 		Tube,
 		Actor,
+		Gem,
 		Obstacle,
 		Obstacle2,
 		Obstacle3,

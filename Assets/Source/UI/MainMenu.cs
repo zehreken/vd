@@ -21,6 +21,7 @@ namespace vd
 			_elements.HighScoreText.text = Services.GetScoreService().GetHighScore().ToString();
 
 			MiniBus.SubscribeToEvent(GameEvent.HighScore, OnUpdateHighScore);
+			MiniBus.SubscribeToEvent(GameEvent.GemCount, OnUpdateGemCount);
 		}
 
 		private void OnClickPlay()
@@ -43,6 +44,11 @@ namespace vd
 			_elements.HighScoreText.text = data["high_score"].ToString();
 		}
 
+		private void OnUpdateGemCount(Dictionary<string, object> data)
+		{
+			_elements.GemCountText.text = data["gem_count"].ToString();
+		}
+
 		private void OnDestroy()
 		{
 			_elements.PlayButton.onClick.RemoveListener(OnClickPlay);
@@ -54,6 +60,7 @@ namespace vd
 		private struct Elements
 		{
 			public TextMeshProUGUI HighScoreText;
+			public TextMeshProUGUI GemCountText;
 			public Button PlayButton;
 			public Button ToggleSoundButton;
 			public GameObject[] SoundImages;

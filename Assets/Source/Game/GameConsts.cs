@@ -12,6 +12,7 @@
 			public const string ScoreKey = "score_key";
 			public const string HighScoreKey = "high_score_key";
 			public const string MuteKey = "mute_key";
+			public const string GemKey = "gem_key";
 		}
 	}
 }

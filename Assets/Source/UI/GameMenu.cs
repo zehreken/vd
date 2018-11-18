@@ -15,6 +15,7 @@ namespace vd
 
 			MiniBus.SubscribeToEvent(GameEvent.Score, OnUpdateScore);
 			MiniBus.SubscribeToEvent(GameEvent.HighScore, OnUpdateHighScore);
+			MiniBus.SubscribeToEvent(GameEvent.GemCount, OnUpdateGemCount);
 			_elements.HighScoreText.text = Services.GetScoreService().GetHighScore().ToString();
 		}
 
@@ -28,11 +29,17 @@ namespace vd
 			_elements.HighScoreText.text = data["high_score"].ToString();
 		}
 
+		private void OnUpdateGemCount(Dictionary<string, object> data)
+		{
+			_elements.GemCountText.text = data["gem_count"].ToString();
+		}
+
 		[Serializable]
 		private struct Elements
 		{
 			public TextMeshProUGUI ScoreText;
 			public TextMeshProUGUI HighScoreText;
+			public TextMeshProUGUI GemCountText;
 		}
 	}
 }

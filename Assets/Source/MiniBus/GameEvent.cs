@@ -4,8 +4,6 @@
 	{
 		Score,
 		HighScore,
-		FingerDown,
-		FingerEnter,
-		FingerUp,
+		GemCount,
 	}
 }

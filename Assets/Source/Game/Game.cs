@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace vd
+﻿namespace vd
 {
 	public sealed class Game
 	{
@@ -9,6 +7,7 @@ namespace vd
 		private readonly Actor _actor;
 		private readonly IActor _cameraController;
 		private readonly ObstacleManager _obstacleManager;
+		private readonly GemManager _gemManager;
 
 		public Game()
 		{
@@ -16,6 +15,7 @@ namespace vd
 			_actor = new Actor();
 //			_cameraController = new CameraController(_actor.GetTransform());
 			_obstacleManager = new ObstacleManager();
+			_gemManager = new GemManager();
 			Services.GetScoreService().ResetScore();
 		}
 
@@ -28,6 +28,7 @@ namespace vd
 			_tube.Reset();
 			_actor.Reset();
 			_obstacleManager.Reset();
+			_gemManager.Reset();
 			Services.GetScoreService().ResetScore();
 		}
 
@@ -39,6 +40,7 @@ namespace vd
 			_tube.Update(deltaTime);
 			_actor.Update(deltaTime);
 			_obstacleManager.Update(deltaTime);
+			_gemManager.Update(deltaTime);
 		}
 
 		public void LateUpdate(float deltaTime)
