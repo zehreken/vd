@@ -21,7 +21,7 @@ namespace vd
 			var audioObject = new GameObject("AudioService");
 			_audioSource = audioObject.AddComponent<AudioSource>();
 			_audioSourcePitch = audioObject.AddComponent<AudioSource>();
-			_audioSource.volume = _audioSourcePitch.volume = 0.5f;
+			_audioSource.volume = _audioSourcePitch.volume = 0.2f;
 			IsMuted = PlayerPrefs.GetInt(GameConsts.Persistence.MuteKey, 0) == 1;
 		}
 
