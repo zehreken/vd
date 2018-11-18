@@ -65,7 +65,7 @@ namespace vd
 
 		public static ObstacleTemplate[] CreateRandomPattern()
 		{
-			var patternLength = Random.Range(3, 6);
+			var patternLength = Random.Range(2, 6);
 			var pattern = new ObstacleTemplate[patternLength];
 			var rndObstacle = Random.Range(2, 7);
 			var rndBehaviour = Random.Range(1, 4);

@@ -6,7 +6,7 @@ namespace vd
 	public class ObstacleManager
 	{
 		private float _spawnTimer = 0f;
-		private const float SpawnPeriod = 0.9f;
+		private const float SpawnPeriod = 0.8f;
 		private readonly List<Obstacle> _obstacles = new List<Obstacle>();
 		private int _remainingPatterns = 0;
 		private ObstacleTemplate[] _currentPattern;
