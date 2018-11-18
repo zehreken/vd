@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
+
 namespace vd
 {
 	public class ObstacleManager
 	{
 		private float _spawnTimer = 0f;
-		private const float SpawnPeriod = 1f;
+		private const float SpawnPeriod = 0.8f;
 		private readonly List<Obstacle> _obstacles = new List<Obstacle>();
 		private int _remainingPatterns = 0;
 		private ObstacleTemplate[] _currentPattern;
+		private Color _color;
 
 		public ObstacleManager()
 		{
@@ -43,15 +46,17 @@ namespace vd
 			{
 				_currentPattern = ObstaclePatterns.GetRandomPattern();
 				_remainingPatterns = _currentPattern.Length;
+				_color = ObstaclePatterns.GetRandomColor();
 			}
-			GetObstacle().Init(_currentPattern[_currentPattern.Length - _remainingPatterns]);
+
+			GetObstacle().Init(_currentPattern[_currentPattern.Length - _remainingPatterns], _color);
 			_remainingPatterns--;
 		}
 
 		private Obstacle GetObstacle()
 		{
 			Obstacle obstacle = null;
-			for (int i= 0; i < _obstacles.Count; i++)
+			for (int i = 0; i < _obstacles.Count; i++)
 			{
 				if (!_obstacles[i].IsActive)
 				{

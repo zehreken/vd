@@ -17,13 +17,13 @@ namespace vd
 		private static readonly ObstacleTemplate[] Pattern2 =
 		{
 			new ObstacleTemplate(PrefabName.Obstacle2, 20f, BehaviourType.RotateOneShot, Vector3.forward),
-			new ObstacleTemplate(PrefabName.Obstacle2, 30f, BehaviourType.RotateOneShot, Vector3.forward),
-			new ObstacleTemplate(PrefabName.Obstacle2, 40f, BehaviourType.RotateOneShot, Vector3.forward),
-			new ObstacleTemplate(PrefabName.Obstacle2, 50f, BehaviourType.RotateOneShot, Vector3.forward),
-			new ObstacleTemplate(PrefabName.Obstacle2, 60f, BehaviourType.RotateOneShot, Vector3.forward),
+			new ObstacleTemplate(PrefabName.Obstacle2, 80f, BehaviourType.RotateOneShot, Vector3.forward),
+			new ObstacleTemplate(PrefabName.Obstacle2, 140f, BehaviourType.RotateOneShot, Vector3.forward),
+			new ObstacleTemplate(PrefabName.Obstacle2, 200f, BehaviourType.RotateOneShot, Vector3.forward),
+			new ObstacleTemplate(PrefabName.Obstacle2, 260f, BehaviourType.RotateOneShot, Vector3.forward),
 		};
 
-		private static ObstacleTemplate[] Pattern3 =
+		private static readonly ObstacleTemplate[] Pattern3 =
 		{
 			new ObstacleTemplate(PrefabName.Obstacle3, 0f, BehaviourType.RotateBounce, Vector3.forward),
 			new ObstacleTemplate(PrefabName.Obstacle3, 100f, BehaviourType.RotateBounce, Vector3.back),
@@ -32,7 +32,7 @@ namespace vd
 			new ObstacleTemplate(PrefabName.Obstacle3, 0f, BehaviourType.RotateBounce, Vector3.forward),
 		};
 
-		private static ObstacleTemplate[] Pattern4 =
+		private static readonly ObstacleTemplate[] Pattern4 =
 		{
 			new ObstacleTemplate(PrefabName.Obstacle4, 0f, BehaviourType.RotateOneShot, Vector3.forward), 
 			new ObstacleTemplate(PrefabName.Obstacle4, 90f, BehaviourType.RotateOneShot, Vector3.back), 
@@ -40,7 +40,7 @@ namespace vd
 			new ObstacleTemplate(PrefabName.Obstacle4, 90f, BehaviourType.RotateOneShot, Vector3.back), 
 		};
 
-		private static ObstacleTemplate[] Pattern5 =
+		private static readonly ObstacleTemplate[] Pattern5 =
 		{
 			new ObstacleTemplate(PrefabName.Obstacle5, 0f, BehaviourType.RotateBounce, Vector3.forward), 
 			new ObstacleTemplate(PrefabName.Obstacle5, 60f, BehaviourType.RotateBounce, Vector3.back), 
@@ -48,7 +48,7 @@ namespace vd
 			new ObstacleTemplate(PrefabName.Obstacle5, 60f, BehaviourType.RotateBounce, Vector3.back), 
 		};
 
-		public static readonly ObstacleTemplate[][] Patterns =
+		private static readonly ObstacleTemplate[][] Patterns =
 		{
 			Pattern1,
 			Pattern2,
@@ -61,6 +61,12 @@ namespace vd
 		{
 			var rnd = Random.Range(0, Patterns.Length);
 			return Patterns[rnd];
+		}
+
+		public static Color GetRandomColor()
+		{
+			var colors = Resources.Load<GameData>("GameData").Colors;
+			return colors[Random.Range(0, colors.Length)];
 		}
 
 		public static Behaviour GetBehaviour(BehaviourType type)
@@ -90,10 +96,10 @@ namespace vd
 
 	public struct ObstacleTemplate
 	{
-		public PrefabName PrefabName;
-		public float StartAngle;
-		public BehaviourType BehaviourType;
-		public Vector3 Direction;
+		public readonly PrefabName PrefabName;
+		public readonly float StartAngle;
+		public readonly BehaviourType BehaviourType;
+		public readonly Vector3 Direction;
 
 		public ObstacleTemplate(PrefabName prefabName,
 			float startAngle,

@@ -10,7 +10,7 @@ namespace vd
 		private float _scaleTimer = 0f;
 		public bool IsActive = false;
 
-		public void Init(ObstacleTemplate template)
+		public void Init(ObstacleTemplate template, Color color)
 		{
 			_view = MiniPool.Create(template.PrefabName, new Vector3(0f, 0f, 100f));
 			_transform = _view.transform;
@@ -19,6 +19,10 @@ namespace vd
 			_behaviour.Init(_transform, template.Direction);
 			IsActive = true;
 			_scaleTimer = 0f;
+			foreach (var renderer in _view.GetComponentsInChildren<Renderer>())
+			{
+				renderer.material.color = color;
+			}
 		}
 
 		public void Update(float deltaTime)
@@ -26,7 +30,7 @@ namespace vd
 			if (!IsActive)
 				return;
 
-			// Scale animation
+			// Scale
 			_transform.localScale = Vector3.Lerp(Vector3.one * 2, Vector3.one, _scaleTimer);
 			_scaleTimer += Time.deltaTime;
 			// Movement
