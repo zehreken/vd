@@ -57,6 +57,11 @@ namespace vd
 			return _highScore;
 		}
 
+		public int GetGemCount()
+		{
+			return _gemCount;
+		}
+
 		public void ResetScore()
 		{
 			_score = 0;

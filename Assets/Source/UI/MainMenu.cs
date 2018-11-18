@@ -19,6 +19,7 @@ namespace vd
 			_elements.SoundImages[0].SetActive(Services.GetAudioService().IsMuted);
 			_elements.SoundImages[1].SetActive(!Services.GetAudioService().IsMuted);
 			_elements.HighScoreText.text = Services.GetScoreService().GetHighScore().ToString();
+			_elements.GemCountText.text = Services.GetScoreService().GetGemCount().ToString();
 
 			MiniBus.SubscribeToEvent(GameEvent.HighScore, OnUpdateHighScore);
 			MiniBus.SubscribeToEvent(GameEvent.GemCount, OnUpdateGemCount);
@@ -54,6 +55,7 @@ namespace vd
 			_elements.PlayButton.onClick.RemoveListener(OnClickPlay);
 			_elements.ToggleSoundButton.onClick.RemoveListener(OnClickToggleSound);
 			MiniBus.UnsubscribeFromEvent(GameEvent.HighScore, OnUpdateHighScore);
+			MiniBus.UnsubscribeFromEvent(GameEvent.GemCount, OnUpdateGemCount);
 		}
 
 		[Serializable]

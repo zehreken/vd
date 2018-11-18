@@ -9,16 +9,22 @@ namespace vd
 		private float _scaleTimer = 0f;
 		public bool IsActive = false;
 
-		public void Init()
+		public Gem()
 		{
 			_view = MiniPool.Create(PrefabName.Gem, new Vector3(0f, -2.25f, 100f));
 			_transform = _view.transform;
+			_view.AddComponent<CollisionHelper>().Init(OnCollision);
+		}
+
+		public void Init()
+		{
+			_transform.position = new Vector3(0f, -2.25f, 100f);
 			_transform.rotation = Quaternion.identity;
 			_transform.RotateAround(Vector3.zero, Vector3.forward, Random.Range(-90f, 90f));
 
-			if (_view.GetComponent<CollisionHelper>() != null)
-				Object.Destroy(_view.GetComponent<CollisionHelper>());
-			_view.AddComponent<CollisionHelper>().Init(OnCollision);
+//			if (_view.GetComponent<CollisionHelper>() != null)
+//				Object.Destroy(_view.GetComponent<CollisionHelper>());
+			_view.SetActive(true);
 			IsActive = true;
 			_scaleTimer = 0f;
 		}
@@ -44,7 +50,7 @@ namespace vd
 		private void OnCollision(Collider collider)
 		{
 			IsActive = false;
-			_view.SendToPool();
+			_view.SetActive(false);
 			ObstacleUtils.CreateGemParticle(_transform.position);
 			Services.GetAudioService().Play(Clip.CollectGem);
 		}
@@ -52,8 +58,7 @@ namespace vd
 		public void Reset()
 		{
 			IsActive = false;
-			_view.SendToPool();
-			_transform = null;
+			_view.SetActive(false);
 		}
 	}
 }
