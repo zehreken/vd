@@ -1,5 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using System;
+using Object = UnityEngine.Object;
 
 namespace vd
 {
@@ -43,11 +44,13 @@ namespace vd
 
 		private void OnCollision(Collider collider)
 		{
-			_particleSystem.Stop();
 			if (collider.CompareTag("Obstacle"))
 			{
+				_particleSystem.Stop();
 				MenuManager.Instance.Close(typeof(GameMenu));
 				MenuManager.Instance.Show(typeof(EndGameMenu));
+				Object.Instantiate(Resources.Load<GameObject>("ActorParticle")).transform.localPosition =
+					_transform.position;
 			}
 			else if (collider.CompareTag("Gem"))
 			{
@@ -60,12 +63,6 @@ namespace vd
 			_particleSystem.Play();
 			_transform.localPosition = new Vector3(0f, -2.25f, 0f);
 			_bodyTransform.rotation = Quaternion.identity;
-		}
-
-		[Obsolete]
-		public Transform GetTransform()
-		{
-			return _transform;
 		}
 	}
 

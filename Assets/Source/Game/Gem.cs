@@ -43,6 +43,7 @@ namespace vd
 		{
 			IsActive = false;
 			_view.SendToPool();
+			Object.Instantiate(Resources.Load<GameObject>("GemParticle")).transform.localPosition = _transform.position;
 		}
 
 		public void Reset()

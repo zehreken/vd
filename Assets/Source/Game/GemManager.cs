@@ -20,7 +20,7 @@ namespace vd
 			if (_spawnTimer >= SpawnPeriod)
 			{
 				_spawnTimer -= SpawnPeriod;
-				var rnd = Random.Range(0, 5);
+				var rnd = Random.Range(0, 0);
 				if (rnd == 0)
 					SpawnGem();
 			}
