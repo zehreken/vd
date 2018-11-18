@@ -21,6 +21,7 @@
 
 		public void StartGame()
 		{
+			Reset();
 		}
 
 		public void Reset()
@@ -46,10 +47,6 @@
 		public void LateUpdate(float deltaTime)
 		{
 //			_cameraController.Update(deltaTime);
-		}
-
-		public void Destroy()
-		{
 		}
 	}
 }

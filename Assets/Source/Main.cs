@@ -23,6 +23,7 @@ namespace vd
 		public void StartGame()
 		{
 			State = AppState.Game;
+			_game.StartGame();
 		}
 
 		private void Update()
@@ -39,10 +40,6 @@ namespace vd
 			{
 				_game.LateUpdate(Time.deltaTime);
 			}
-		}
-
-		public void Quit()
-		{
 		}
 
 		public void Restart()
