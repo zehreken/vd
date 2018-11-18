@@ -26,9 +26,9 @@ namespace vd
 		private static readonly ObstacleTemplate[] Pattern3 =
 		{
 			new ObstacleTemplate(PrefabName.Obstacle3, 0f, BehaviourType.RotateBounce, Vector3.forward),
-			new ObstacleTemplate(PrefabName.Obstacle3, 100f, BehaviourType.RotateBounce, Vector3.back),
+			new ObstacleTemplate(PrefabName.Obstacle3, 150f, BehaviourType.RotateBounce, Vector3.back),
 			new ObstacleTemplate(PrefabName.Obstacle3, 0f, BehaviourType.RotateBounce, Vector3.forward),
-			new ObstacleTemplate(PrefabName.Obstacle3, 100f, BehaviourType.RotateBounce, Vector3.back),
+			new ObstacleTemplate(PrefabName.Obstacle3, 150f, BehaviourType.RotateBounce, Vector3.back),
 			new ObstacleTemplate(PrefabName.Obstacle3, 0f, BehaviourType.RotateBounce, Vector3.forward),
 		};
 
@@ -61,6 +61,22 @@ namespace vd
 		{
 			var rnd = Random.Range(0, Patterns.Length);
 			return Patterns[rnd];
+		}
+
+		public static ObstacleTemplate[] CreateRandomPattern()
+		{
+			var patternLength = Random.Range(3, 6);
+			var pattern = new ObstacleTemplate[patternLength];
+			var rndObstacle = Random.Range(2, 7);
+			var rndBehaviour = Random.Range(1, 4);
+			var rndAngle = Random.Range(0, 4);
+
+			for (int i = 0; i < patternLength; i++)
+			{
+				pattern[i] = new ObstacleTemplate((PrefabName)rndObstacle, i * rndAngle * 30f, (BehaviourType)rndBehaviour, Vector3.forward);
+			}
+
+			return pattern;
 		}
 
 		public static Color GetRandomColor()

@@ -17,7 +17,7 @@ namespace vd
 			if (_timer > 0f)
 			{
 				_timer -= deltaTime;
-				Transform.Rotate(Direction * 30f * deltaTime);
+				Transform.Rotate(Direction * 50f * deltaTime);
 			}
 			else
 			{

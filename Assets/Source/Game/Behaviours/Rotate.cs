@@ -12,7 +12,7 @@ namespace vd
 
 		public override void Update(float deltaTime)
 		{
-			Transform.Rotate(Direction * 30f * deltaTime);
+			Transform.Rotate(Direction * 40f * deltaTime);
 		}
 	}
 }

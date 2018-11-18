@@ -4,7 +4,7 @@ namespace vd
 {
 	public class RotateOneShot : Behaviour
 	{
-		private float _timer = 2f;
+		private float _timer = 1f;
 
 		public override void Init(Transform transform, Vector3 direction)
 		{
@@ -17,7 +17,7 @@ namespace vd
 			if (_timer > 0f)
 			{
 				_timer -= deltaTime;
-				Transform.Rotate(Direction * 30f * deltaTime);
+				Transform.Rotate(Direction * 80f * deltaTime);
 			}
 		}
 	}

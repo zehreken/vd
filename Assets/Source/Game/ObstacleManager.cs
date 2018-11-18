@@ -6,7 +6,7 @@ namespace vd
 	public class ObstacleManager
 	{
 		private float _spawnTimer = 0f;
-		private const float SpawnPeriod = 0.8f;
+		private const float SpawnPeriod = 0.9f;
 		private readonly List<Obstacle> _obstacles = new List<Obstacle>();
 		private int _remainingPatterns = 0;
 		private ObstacleTemplate[] _currentPattern;
@@ -44,7 +44,8 @@ namespace vd
 		{
 			if (_remainingPatterns == 0)
 			{
-				_currentPattern = ObstaclePatterns.GetRandomPattern();
+//				_currentPattern = ObstaclePatterns.GetRandomPattern();
+				_currentPattern = ObstaclePatterns.CreateRandomPattern();
 				_remainingPatterns = _currentPattern.Length;
 				_color = ObstaclePatterns.GetRandomColor();
 			}
