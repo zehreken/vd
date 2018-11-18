@@ -52,6 +52,7 @@ namespace vd
 				Object.Instantiate(Resources.Load<GameObject>("ActorParticle")).transform.localPosition =
 					_transform.position;
 				Services.GetAudioService().Play(Clip.Hit);
+				_view.SetActive(false);
 			}
 			else if (collider.CompareTag("Gem"))
 			{
@@ -61,9 +62,10 @@ namespace vd
 
 		public void Reset()
 		{
-			_particleSystem.Play();
 			_transform.localPosition = new Vector3(0f, -2.25f, 0f);
 			_bodyTransform.rotation = Quaternion.identity;
+			_view.SetActive(true);
+			_particleSystem.Play();
 		}
 	}
 
