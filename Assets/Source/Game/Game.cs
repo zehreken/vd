@@ -2,7 +2,6 @@
 {
 	public sealed class Game
 	{
-		private readonly InputController _inputController;
 		private readonly IActor _tube;
 		private readonly Actor _actor;
 		private readonly ObstacleManager _obstacleManager;

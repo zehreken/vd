@@ -6,7 +6,7 @@ namespace vd
 	{
 		public static Main Instance { get; private set; }
 		private Game _game;
-		public AppState State = AppState.Pause;
+		private AppState _state = AppState.Pause;
 
 		private void Start()
 		{
@@ -22,19 +22,24 @@ namespace vd
 
 		public void StartGame()
 		{
-			State = AppState.Play;
+			_state = AppState.Play;
 			_game.StartGame();
+		}
+
+		public void StopGame()
+		{
+			_state = AppState.Pause;
 		}
 
 		private void Update()
 		{
-			if (State == AppState.Play && _game != null)
+			if (_state == AppState.Play && _game != null)
 			{
 				_game.Update(Time.deltaTime);
 			}
 		}
 
-		public enum AppState
+		private enum AppState
 		{
 			Play,
 			Pause
