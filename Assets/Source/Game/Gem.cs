@@ -44,10 +44,14 @@ namespace vd
 			IsActive = false;
 			_view.SendToPool();
 			Object.Instantiate(Resources.Load<GameObject>("GemParticle")).transform.localPosition = _transform.position;
+			Services.GetAudioService().Play(Clip.CollectGem);
 		}
 
 		public void Reset()
 		{
+			IsActive = false;
+			_view.SendToPool();
+			_transform = null;
 		}
 	}
 }

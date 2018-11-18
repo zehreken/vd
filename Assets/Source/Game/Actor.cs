@@ -51,6 +51,7 @@ namespace vd
 				MenuManager.Instance.Show(typeof(EndGameMenu));
 				Object.Instantiate(Resources.Load<GameObject>("ActorParticle")).transform.localPosition =
 					_transform.position;
+				Services.GetAudioService().Play(Clip.Hit);
 			}
 			else if (collider.CompareTag("Gem"))
 			{

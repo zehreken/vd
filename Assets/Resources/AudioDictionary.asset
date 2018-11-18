@@ -11,5 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb385a5ff3321a46833f82f06d37a5d, type: 3}
   m_Name: AudioDictionary
   m_EditorClassIdentifier: 
-  Names: 00000000000000000000000000000000
-  AudioClips: []
+  Names: 000000000100000002000000
+  AudioClips:
+  - {fileID: 8300000, guid: 19e9d54a80493474b966341e0c54e1e9, type: 3}
+  - {fileID: 8300000, guid: 95f3513f29006dd48976036ea71da7f6, type: 3}
+  - {fileID: 8300000, guid: 39befbffdfca651409f8113ee75b3ca3, type: 3}

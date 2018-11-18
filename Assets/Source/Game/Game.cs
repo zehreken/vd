@@ -26,6 +26,7 @@
 
 		public void Reset()
 		{
+			Services.GetAudioService().Play(Clip.Start);
 			_tube.Reset();
 			_actor.Reset();
 			_obstacleManager.Reset();

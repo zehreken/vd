@@ -5,9 +5,8 @@ namespace vd
 	public enum Clip
 	{
 		Start,
-		Enter,
-		Match,
-		Lose,
+		CollectGem,
+		Hit,
 	}
 
 	public class AudioService : IService
