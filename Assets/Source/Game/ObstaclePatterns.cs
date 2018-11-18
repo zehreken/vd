@@ -70,10 +70,12 @@ namespace vd
 			var rndObstacle = Random.Range(2, 7);
 			var rndBehaviour = Random.Range(1, 4);
 			var rndAngle = Random.Range(0, 4);
+			var rndDirection = Random.Range(0, 2);
+			var direction = rndDirection > 0 ? Vector3.forward : Vector3.back;
 
 			for (int i = 0; i < patternLength; i++)
 			{
-				pattern[i] = new ObstacleTemplate((PrefabName)rndObstacle, i * rndAngle * 30f, (BehaviourType)rndBehaviour, Vector3.forward);
+				pattern[i] = new ObstacleTemplate((PrefabName)rndObstacle, i * rndAngle * 30f, (BehaviourType)rndBehaviour, direction);
 			}
 
 			return pattern;
